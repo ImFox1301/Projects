@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Car Park Manager</title>
+    <style>
+        body {font-family: Arial, Helvetica, sans-serif;}
+        * {box-sizing: border-box;}
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+
+        .btn{
+            background-color: #000000;
+            color: white;
+            padding: 1px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn:hover{
+            background-color: #656665;
+        }
+
+        .container {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+<h1 align = "center">Car Park</h1>
+<div class="container">
+    <a href="/new" class="btn" align = "center">Create car</a>
+    <br/><br/>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Car Type</th>
+            <th>Car Manufacturer</th>
+            <th>Government Number</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="carPark : ${listCarPark}" align = "center">
+            <td th:text="${carPark.id}">Car ID</td>
+            <td th:text="${carPark.car_type}">Car Type</td>
+            <td th:text="${carPark.car_manufacturer}">Car Manufacturer</td>
+            <td th:text="${carPark.government_number}">Government number</td>
+            <td>
+                <a th:href="@{/edit/{id}(id = ${carPark.id})}" class="btn">Edit</a>
+                &nbsp;&nbsp;&nbsp;
+                <a th:href="@{/delete/{id}(id = ${carPark.id})}" class="btn">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="../" class="btn">Return to homepage</a>
+</div>
+</body>
+</html>

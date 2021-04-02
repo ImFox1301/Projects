@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Edit Car Park</title>
+    <style>
+        body {font-family: Arial, Helvetica, sans-serif;}
+        * {box-sizing: border-box;}
+
+        input[type=text], select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            resize: vertical;
+        }
+
+        .container {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        input[type=submit] {
+            background-color: #000000;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+            background-color: #656665;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="one"><h1>Edit Car</h1></div>
+    <br />
+    <form action="#" th:action="@{/save}" th:object="${carPark}"
+          method="post">
+
+        <table border="0" cellpadding="10">
+            <tr>
+                <td>ID:</td>
+                <td>
+                    <input type="text" th:field="*{id}" readonly="readonly" />
+                </td>
+            </tr>
+            <tr>
+                <td>Car type:</td>
+                <td><select id="selectRowsType" th:field="*{car_type}" />
+                    <option>Сar</option>
+                    <option>Minibus</option>
+                    <option>Bus</option>
+                    <option>Light Truck</option>
+                    <option>Truck</option></td>
+            </tr>
+            <tr>
+                <td>Car Manufacturer:</td>
+                <td><select id="selectRowsManufacturer" th:field="*{car_manufacturer}" />
+                    <option>Audi</option>
+                    <option>BMW</option>
+                    <option>Chevrolet</option>
+                    <option>Citroen</option>
+                    <option>Ford</option>
+                    <option>Honda</option>
+                    <option>Hyundai</option>
+                    <option>Kia</option>
+                    <option>Mercedes</option>
+                    <option>Mitsubishi</option>
+                    <option>MAN</option>
+                    <option>Nissan</option>
+                    <option>Opel</option>
+                    <option>Peugeot</option>
+                    <option>Renault</option>
+                    <option>Scania</option>
+                    <option>Skoda</option>
+                    <option>Suzuki</option>
+                    <option>Toyota</option>
+                    <option>Volkswagen</option>
+                </td>
+            </tr>
+            <tr>
+                <td>Car number:</td>
+                <td><input type="text" th:field="*{government_number}" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="Submit"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
